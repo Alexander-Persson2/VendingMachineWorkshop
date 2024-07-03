@@ -7,4 +7,12 @@ public class Candy extends Product {
         super(id, name, price);
         this.flavor = flavor;
     }
+
+    public String getFlavor() {
+        return flavor;
+    }
+    @Override
+    public String getDescription() {
+        return "Candy: " + getName() + ", Flavor: " + flavor + "Price:" + getPrice();
+    }
 }

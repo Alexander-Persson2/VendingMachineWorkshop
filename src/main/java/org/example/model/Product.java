@@ -23,9 +23,5 @@ public abstract class Product {
         return price;
     }
 
-    public double getPrice() {
-        return price;
-    }
-
     public abstract String getDescription();
 }

@@ -1,13 +1,33 @@
 package org.example;
 
-/**
- * Hello world!
- *
- */
-public class App 
-{
-    public static void main( String[] args )
-    {
-        System.out.println( "Hello World!" );
+import org.example.model.*;
+
+public class App {
+    public static void main(String[] args) {
+        VendingMachine vm = new VendingMachineImpl();
+
+        // Display available products
+        System.out.println("Available products:");
+        for (String product : vm.getProducts()) {
+            System.out.println(product);
+        }
+
+        // Add money to the vending machine
+        vm.addCurrency(20);
+        System.out.println("Balance after adding 20: " + vm.getBalance());
+
+        // Request a product
+        Product boughtProduct = vm.request(1);
+        System.out.println("Bought product: " + boughtProduct.getDescription());
+
+        // Display balance after purchase
+
+        System.out.println("Balance after purchase: " + vm.getBalance());
+
+        // End session and get refund
+
+        vm.endSession();
+        System.out.println("Balance after ending session: " + vm.getBalance());
+
     }
 }
