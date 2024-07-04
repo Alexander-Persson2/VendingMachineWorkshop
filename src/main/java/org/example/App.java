@@ -17,8 +17,14 @@ public class App {
         System.out.println("Balance after adding 20: " + vm.getBalance());
 
         // Request a product
-        Product boughtProduct = vm.request(1);
+        Product boughtProduct = vm.request(2);
         System.out.println("Bought product: " + boughtProduct.getDescription());
+
+        // Check if the bought product is a Drink and display its volume
+        if (boughtProduct instanceof Drink) {
+            Drink boughtDrink = (Drink) boughtProduct;
+            System.out.println("Bought drink volume: " + boughtDrink.getVolume() + "ml");
+        }
 
         // Display balance after purchase
 

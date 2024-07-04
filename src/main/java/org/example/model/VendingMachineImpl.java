@@ -14,8 +14,10 @@ public class VendingMachineImpl implements VendingMachine {
      * Constructor to initialize the vending machine.
      */
     public VendingMachineImpl() {
-        this.depositPool = 0;
-        this.products = new ArrayList<>();
+        this.depositPool = 0; // Initialize the deposit pool to 0, which means no money has been added yet.
+        this.products = new ArrayList<>(); // Create a new ArrayList to hold the products available in the vending machine.
+
+        // Initialize the vending machine with some predefined products
         products.add(new Candy(1, "Bounty", 10, "Chocolate"));
         products.add(new Drink(2, "Pepsi Max", 15, 500));
     }
@@ -26,11 +28,12 @@ public class VendingMachineImpl implements VendingMachine {
      */
     @Override
     public void addCurrency(int amount) {
+        // Check if the amount is a valid denomination
         if (amount == 1 || amount == 2 || amount == 5 || amount == 10 || amount == 20 || amount == 50 ||
                 amount == 100 || amount == 200 || amount == 500 || amount == 1000) {
-            depositPool += amount;
+            depositPool += amount; // Add the valid amount to the deposit pool
         } else {
-            throw new IllegalArgumentException("Invalid currency amount");
+            throw new IllegalArgumentException("Invalid currency amount"); // Throw an error if the amount is not valid
         }
     }
 
